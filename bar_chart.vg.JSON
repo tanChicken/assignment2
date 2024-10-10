@@ -20,17 +20,9 @@
     },
     "encoding": {
       "x": {
-        "field": "Country",
-        "type": "nominal",
-        "axis": {
-          "domain": true,
-          "ticks": true,
-          "labelAngle": 0,
-          "labelPadding": 4,
-          "title": "Currency",
-          "titleFontWeight": "bold",
-          "titleFontSize": 14
-        }
+        "field": "Currency",
+        "type": "nominal"
+        
       },
       "y": {
         "field": "Value",
