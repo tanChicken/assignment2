@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="vega_lite_vis.js"></script>
+    <title>First Vega-Lite graph </title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            padding: 20px;
+            background-color: #ddd;
+            color: #333;
+            max-width: 1200px;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 36px;
+            color: #003366;
+        }
+        header p {
+            font-size: 18px;
+            color: #666;
+        }
+        h2 {
+            font-size: 24px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        .chart-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .element {
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;    
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Global Exchange Rate Analysis</h1>
+        <p>An in-depth look at currency appreciation and depreciation trends from Sep 2023 to Sep 2024.</p>
+    </header>
+
+    <div class="chart-title">
+        <i class="fas fa-chart-line"></i>
+        <h2>Bar Chart</h2>
+    </div>
+    <p>This visualization displays the effective exchange rate changes by country from September 2023 to September 2024, indicating whether a country's currency appreciated or depreciated in this period. Countries with positive values show appreciation, while negative values indicate depreciation. The color scale ranges from red (significant depreciation) to green (appreciation), providing a clear overview of currency stability across the globe.</p>
+    <div class="element">
+        <div class="about" id="bar_chart"></div>
+
+    <div class="chart-title">
+        <i class="fas fa-chart-area"></i>
+        <h2>World Map Projections</h2>
+    </div>
+    <p>This visualization shows the trend of the currency exchange rates over time, providing a detailed look at how rates have fluctuated. Each line represents a different currency, allowing for easy comparison of multiple currencies across different dates. Use this chart to understand trends, detect volatility, and identify periods of significant exchange rate changes.</p>
+    <div class="element">
+        <div id="map"></div>
+
+    <footer>
+        Jason Tan Jee Kin 34040544 
+    </footer>
+</html>
