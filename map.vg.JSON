@@ -61,6 +61,7 @@
     ]
   },
   "config": {
+    "background": "#ADD8E6",
     "view": {
       "stroke": "#ddd"
     },

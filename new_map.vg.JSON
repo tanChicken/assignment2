@@ -1,39 +1,52 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Country Data Visualization Based on Values",
     "width": 800,
-    "height": 400,
+    "height": 450,
+    "title": "Country Data Visualization with Value Size and Location",
     "projection": {"type": "equalEarth"},
-    "data": {
-      "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-    },
-    "transform": [
+    "layer": [
       {
-        "lookup": "properties.NAME",
-        "from": {
-          "data": {
-            "url": "map_one.csv",
-            "format": {"type": "csv"}
+        "data": {
+          "url": "ne_110m.json",
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "ne_110m.json",
+          "format": {"type": "topojson", "feature": "ne_110m_oceans"}
+        },
+        "mark": {"type": "geoshape", "fill": "blue", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "map_one.csv",
+          "format": {"type": "csv"}
+        },
+        "mark": {"type": "circle", "tooltip": {"content": "data"}, "size":100},
+        "encoding": {
+          "longitude": {"field": "Longitude", "type": "quantitative"},
+          "latitude": {"field": "Latitude", "type": "quantitative"},
+   
+          "color": {
+            "condition": {
+              "test": "datum.Value > 0",
+              "value": "green" 
+            },
+            "value": "red"
           },
-          "key": "Country_Name",
-          "fields": ["Round_Value"]
+          "tooltip": [
+            {"field": "Country_Name", "type": "nominal", "title": "Country"},
+            {
+                "field": "Value",
+                "type": "quantitative",
+                "title": "Change in Currency %",
+                "format": ".2f" 
+              }
+          ]
         }
-      },
-      {"calculate": "datum.Value + 0.1", "as": "Adjusted Value"}
-    ],
-    "mark": {"type": "geoshape", "stroke": "white"},
-    "encoding": {
-      "color": {
-        "field": "Adjusted Value",
-        "type": "quantitative",
-        "scale": {"type": "linear", "scheme": "blues"},
-        "title": "Value"
-      },
-      "tooltip": [
-        {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-        {"field": "Value", "type": "quantitative", "title": "Value"}
-      ]
-    }
+      }
+    ]
   }
   
