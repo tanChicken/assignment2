@@ -1,11 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Country Data Visualization with Value Color Fill",
+    "title": "Country Data Visualization Based on Values",
     "width": 800,
     "height": 400,
     "projection": {"type": "equalEarth"},
     "data": {
-      "url": "ne_110m.json",
+      "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
     },
     "transform": [
@@ -17,7 +17,7 @@
             "format": {"type": "csv"}
           },
           "key": "Country_Name",
-          "fields": ["Value"]
+          "fields": ["Round_Value"]
         }
       },
       {"calculate": "datum.Value + 0.1", "as": "Adjusted Value"}
@@ -27,7 +27,7 @@
       "color": {
         "field": "Adjusted Value",
         "type": "quantitative",
-        "scale": {"type": "log", "scheme": "blues"},
+        "scale": {"type": "linear", "scheme": "blues"},
         "title": "Value"
       },
       "tooltip": [
