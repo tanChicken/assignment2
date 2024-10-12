@@ -1,0 +1,25 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Exchange rates over time for USD, GBP, INR100, and SDR.",
+    "data": {"url": "Filtered_Data__USD__GBP__INR100__SDR__until_Latest_Date.csv"},
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "timeUnit": "yearmonth",
+        "title": "Dates",
+        "axis": {
+          "format": "%b %Y",
+          "labelAngle": -45
+        }
+      },
+      "y": {
+        "field": "exchange_rate",
+        "type": "quantitative",
+        "title": "Exchange Rate",
+        "scale": {"domain": [4.3, 6.5]}
+      },
+      "color": {"field": "currency", "type": "nominal"}
+    }
+}

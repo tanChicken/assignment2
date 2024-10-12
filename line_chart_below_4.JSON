@@ -1,0 +1,25 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Exchange rates over time for currencies with values <= 5.",
+    "data": {"url": "Filtered_Exchange_Rate_____5__without_USD.csv"},
+    "mark": "line",
+    "encoding": {
+      "x": {        
+        "field": "date",
+        "type": "temporal",
+        "timeUnit": "yearmonth",
+        "title": "Dates",
+        "axis": {
+          "format": "%b %Y",
+          "labelAngle": -45
+        }
+      },
+      "y": {
+        "field": "exchange_rate",
+        "type": "quantitative",
+        "scale": {"domain": [2.9, 3.6]}
+      },
+      "color": {"field": "currency", "type": "nominal"}
+    }
+  }
+  
