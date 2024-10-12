@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Malaysia Tourism Statistics</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Title -->
+      <section class="title">
+        <h1>MALAYSIA TOURISM STATISTICS (2016-2023)</h1>
+        <p>
+          In recent years, Malaysia's tourism sector has experienced remarkable
+          growth, driven by its variety of attractions, rich cultural heritage,
+          and strategic location. To better understand the industry's performace
+          and its overall impact during this period, it is crucial to anlyze key
+          performance indicators.
+        </p>
+      </section>
+
+      <!-- Visualization Sections -->
+      <section class="vis-section-1">
+        <h2>Tourist Arrivals To Malaysia By Country (45 Countries)</h2>
+        <div id="choropleth_world_map" class="vis-container"></div>
+        <p class="vis-description">
+          From 2016 to 2023, <b>Singapore</b> was the top country contributing
+          to tourist arrivals with over <b>61 million visitors</b>, followed by
+          Indonesia, Thailand, China and Brunei.
+        </p>
+      </section>
+
+      <section class="vis-section-2">
+        <div id="barline_chart" class="vis-container"></div>
+        <div class="vis-description">
+          <h2>Tourist Arrivals and Receipts</h2>
+          <p>
+            Malaysia's tourist arrivals, peaking between 2016 and 2019, with
+            totals exceeding 25 millions tourists annually. However, the
+            <b>COVID-19 pandemic in 2020 and 2021</b> led to a dramatic decline
+            in tourist arrivals and receipts. <br /><br />Despite the
+            challenges, Malaysia implemented various recovery measures to
+            revitalize its tourism industry, including vaccination campaigns.
+            Following the
+            <b>relaxation of global travel restrictions in 2022</b>, Malaysia
+            witnessed a significant rebound in tourism, and the positive trend
+            continued into 2023 showing the Malaysian resilience of the Malaysia
+            tourism industry
+          </p>
+        </div>
+      </section>
+
+      <section class="vis-section-3">
+        <h2>Expenditure Components</h2>
+        <div id="bump_chart" class="vis-container"></div>
+        <p class="vis-description">
+          <b>Shopping</b> consistently remained the largest expenditure
+          category,
+          <b>peaking in 2019 at RM28,944.2 (33.6% of total expenditure)</b>. It
+          saw a dip in 2021 due to the pandemic. Many retail outlets, malls, and
+          tourist shopping destinations were either closed or operating with
+          restrictions, reducing tourist spending on shopping.
+          <b
+            >During pandemic, tourists prioritized essential services like
+            accommodation and food over shopping</b
+          >, thus, accomodation and food & beverages expenditures increased in
+          ranking during the COVID-19 pandemic.
+        </p>
+      </section>
+
+      <section class="vis-section-4">
+        <div class="vis-description">
+          <h2>Hotel Guests By States</h2>
+          <p>
+            In 2023, <b>Kuala Lumpur</b>, the capital city of Malaysia, leads
+            with 18.4 million arrivals due to its status as a business and
+            tourist center, drawing visitors for its iconic landmarks, shopping
+            and international events.<br /><br /><b>Pulau Pinang</b> with over
+            7.2 million in 2023 arrivals is also a major tourism hub due to its
+            cultural heritage, beaches and UNESCO-listed George Town. This makes
+            it a popular destination despite having a smaller area compared to
+            other states.<br /><br /><b>Pahang</b> as a notable number of hotel
+            guest arrivals despites its lower arrival per KM2 due to its vast
+            land area. The lower density of arrivals per KM2 doesn't imply a
+            lack of tourism but rather that the arrivals are spread across its
+            extensive area. Pahang's appeal lies in its famous attractions like
+            Cameron Highlands, Taman Negara, and Genting Highlands.
+          </p>
+        </div>
+        <div id="choropleth_map" class="vis-container"></div>
+      </section>
+
+      <section class="vis-section-5">
+        <div id="pie_chart" class="vis-container"></div>
+        <div class="vis-description">
+          <h2>Mode Of Transport</h2>
+          <p>
+            In 2023, land transportation was the dominant mode, accounting for
+            55.8% of arrivals, with over 11 million tourists using this method.
+            This reflects the convenience and accessibility of land routes,
+            especially for regional travelers. Air travel followed with 36.7% of
+            arrivals, highlighting the importance of international and
+            long-distance travel for tourism, with over 7.3 million tourists
+            arriving by air. <br /><br />Meanwhile, sea travel contributed 5.6%,
+            likely linked to coastal destinations or cruise tourism. Rail travel
+            had the smallest share at 1.9%, indicating limited infrastructure or
+            less preference for rail journeys among tourists. The contrast
+            between these modes shows the diverse ways tourists access
+            destinations, with a
+            <b>strong preference for road and air travel</b> over other forms of
+            transport.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      var vg1 = "Visualization/choroplethmap.json";
+      var vg2 = "Visualization/choroplethworldmap.json";
+      var vg3 = "Visualization/barlinechart.json";
+      var vg4 = "Visualization/piechart.json";
+      var vg5 = "Visualization/bumpchart.json";
+
+      vegaEmbed("#choropleth_map", vg1, { actions: false }).catch(
+        console.error
+      );
+      vegaEmbed("#choropleth_world_map", vg2, { actions: false }).catch(
+        console.error
+      );
+      vegaEmbed("#barline_chart", vg3, { actions: false }).catch(console.error);
+      vegaEmbed("#pie_chart", vg4, { actions: false }).catch(console.error);
+      vegaEmbed("#bump_chart", vg5, { actions: false }).catch(console.error);
+    </script>

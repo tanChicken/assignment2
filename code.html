@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vega-Lite Visualizations</title>
+    <!-- Vega-Lite & Vega-Embed libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+
+    <h1>Vega-Lite Visualizations</h1>
+
+    <!-- Divs to hold the charts -->
+    <h2>Map Visualization</h2>
+    <div id="map"></div>
+
+    <h2>Bar Chart Visualization</h2>
+    <div id="bar"></div>
+
+    <script type="text/javascript">
+        var vg1 = "bar_chart.vg.JSON";
+        var vg2 = "map.vg.JSON";
+  
+        vegaEmbed("#bar", vg1, { actions: false }).catch(
+          console.error
+        );
+        vegaEmbed("#map", vg2, { actions: false }).catch(
+          console.error
+        );
+      </script>
+
+</body>
+</html>
