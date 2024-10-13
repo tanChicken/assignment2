@@ -3,34 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vega-Lite Visualizations</title>
-    <!-- Vega-Lite & Vega-Embed libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <title>Data Visualizations</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 </head>
 <body>
+    <div class="main-container">
+        <header class="page-header">
+          <h1>Data Visualization Dashboard</h1>
+          <p class="header-description">
+              Explore various data insights through a series of visualizations, including line charts, bar charts, and a geographical map. Each visualization provides unique perspectives on different datasets.
+          </p>
+          </header>
+        <div class="line_chart_container">
+            <h2>Line Charts Comparison</h2>
+            <div class="line-charts">
+                <div id="line_chart_1" class="chart"></div>
+                <div id="line_chart_2" class="chart"></div>
+            </div>
+            <p class="description">
+                These line charts illustrate trends over time for different age groups. The first chart represents ages 4 to 6, while the second chart represents those below age 4.
+            </p>
+        </div>
 
-    <h1>Vega-Lite Visualizations</h1>
+        <div class="bar_chart_container">
+            <h2>Bar Chart Visualization</h2>
+            <div id="bar_chart" class="chart"></div>
+            <p class="description">
+                This bar chart illustrates comparative data across various categories, highlighting trends and key differences.
+            </p>
+        </div>
 
-    <!-- Divs to hold the charts -->
-    <h2>Map Visualization</h2>
-    <div id="map"></div>
-
-    <h2>Bar Chart Visualization</h2>
-    <div id="bar"></div>
+        <div class="map_container">
+            <h2>Geographical Data Map</h2>
+            <div id="map" class="map_chart"></div>
+            <p class="description">
+                A geographical representation of data, showing patterns and distributions across regions. Zoom in and explore specific areas.
+            </p>
+        </div>
+    </div>
 
     <script type="text/javascript">
-        var vg1 = "bar_chart.vg.JSON";
-        var vg2 = "map.vg.JSON";
-  
-        vegaEmbed("#bar", vg1, { actions: false }).catch(
-          console.error
-        );
-        vegaEmbed("#map", vg2, { actions: false }).catch(
-          console.error
-        );
-      </script>
+        var vg_1 = "bar_chart.vg.JSON";
+        var vg_2 = "new_map.vg.JSON";
+        var vg_3 = "line_chart_4_to_6.vg.JSON";
+        var vg_4 = "line_chart_below_4.vg.JSON";
 
+        vegaEmbed("#bar_chart", vg_1).then(function(result) {
+            action: false
+        }).catch(console.error);
+        vegaEmbed("#map", vg_2).then(function(result) {
+            action: false
+        }).catch(console.error);
+        vegaEmbed("#line_chart_1", vg_3).then(function(result) {
+            action: false
+        }).catch(console.error);
+        vegaEmbed("#line_chart_2", vg_4).then(function(result) {
+            action: false
+        }).catch(console.error);
+    </script>
 </body>
 </html>
