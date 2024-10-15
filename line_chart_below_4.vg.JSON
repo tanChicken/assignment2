@@ -2,7 +2,10 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "Exchange rates over time for currencies with values <= 5.",
     "data": {"url": "Filtered_Exchange_Rate_____5__without_USD.csv"},
-    "mark": "line",
+    "mark": {
+      "type": "line",
+      "point": true
+      },
     "encoding": {
       "x": {        
         "field": "date",
